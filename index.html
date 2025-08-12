@@ -1,97 +1,84 @@
-
-<!doctype html>
-<a href="login.html" class="login-btn">Login</a>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>NaijaGPA — GPA & CGPA Calculator</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>West Africa Classifieds - Buy & Sell in Nigeria, Ghana</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3403005777046580" crossorigin="anonymous"></script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-grid">
-      <div class="brand">
-        <h1>NaijaGPA</h1>
-        <p class="tag">Smart GPA & CGPA tracker — now with charts!</p>
-      </div>
-      <div class="cgpa-card" id="cgpaCard" aria-live="polite">
-        <div class="cgpa-value" id="cgpaValue">CGPA — —</div>
-        <div class="cgpa-sub" id="cgpaDetails">No semesters saved</div>
-      </div>
-    </div>
-  </header>
-
-  <main class="container main-grid">
-    <section class="calculator" aria-labelledby="calcHeading">
-      <h2 id="calcHeading">Semester Calculator</h2>
-
-      <div class="form-row">
-        <label for="gradingScale">Grading scale</label>
-        <select id="gradingScale">
-          <option value="5">5-point scale (A=5)</option>
-          <option value="4">4-point scale (A=4)</option>
-          <option value="custom">Custom</option>
-        </select>
-      </div>
-      <div class="form-row" id="customScaleRow" style="display:none">
-        <label for="customScaleValues">Custom values (A,B,C,D,E,F)</label>
-        <input id="customScaleValues" placeholder="e.g. 10,8,6,4,2,0" />
-      </div>
-
-      <div class="form-row">
-        <label for="semesterName">Semester name</label>
-        <input id="semesterName" placeholder="e.g. 2025 First Semester" />
-      </div>
-
-      <div id="coursesArea" class="courses-area"></div>
-
-      <div class="controls">
-        <button id="addCourseBtn" class="btn ghost">+ Add course</button>
-        <button id="calcBtn" class="btn primary">Calculate GPA</button>
-        <button id="saveSemBtn" class="btn success" disabled>Save Semester</button>
-        <button id="resetBtn" class="btn danger ghost">Reset</button>
-      </div>
-
-      <div class="result" id="resultCard" hidden>
-        <div>
-          <strong>Semester GPA:</strong> <span id="semesterGPA">—</span>
+    <header>
+        <div class="container">
+            <h1>West Africa Classifieds</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="listings.html">Browse Ads</a></li>
+                    <li><a href="post-ad.html">Post Free Ad</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="signup.html">Sign Up</a></li>
+                </ul>
+            </nav>
         </div>
-        <div>
-          <strong>Total Credits:</strong> <span id="totalCredits">0</span>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h2>Buy and Sell Across West Africa</h2>
+            <p>Nigeria • Ghana • Ivory Coast • Senegal • and more</p>
+            <a href="post-ad.html" class="btn">Post Free Ad</a>
+        </section>
+
+        <section class="categories">
+            <h3>Popular Categories</h3>
+            <div class="category-grid">
+                <a href="listings.html?category=vehicles" class="category-card">
+                    <img src="images/car-icon.png" alt="Vehicles">
+                    <span>Vehicles</span>
+                </a>
+                <a href="listings.html?category=property" class="category-card">
+                    <img src="images/home-icon.png" alt="Property">
+                    <span>Property</span>
+                </a>
+                <a href="listings.html?category=electronics" class="category-card">
+                    <img src="images/phone-icon.png" alt="Electronics">
+                    <span>Electronics</span>
+                </a>
+                <a href="listings.html?category=jobs" class="category-card">
+                    <img src="images/job-icon.png" alt="Jobs">
+                    <span>Jobs</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- AdSense Ad Unit -->
+        <div class="ad-container">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-3403005777046580"
+                 data-ad-slot="1234567890"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
-      </div>
 
-      <canvas id="gradesPie" height="150" style="margin-top:15px"></canvas>
-    </section>
+        <section class="featured-ads">
+            <h3>Featured Listings</h3>
+            <div class="ads-grid">
+                <!-- Sample ads would be loaded here via JavaScript -->
+            </div>
+        </section>
+    </main>
 
-    <aside class="history" aria-labelledby="historyHeading">
-      <h2 id="historyHeading">Saved Semesters</h2>
-      <div class="history-controls">
-        <input id="searchSem" placeholder="Search semesters..." />
-        <div>
-          <button id="exportBtn" class="btn ghost">Export JSON</button>
-          <input id="importFile" type="file" accept="application/json" style="display:none" />
-          <button id="importBtn" class="btn ghost">Import JSON</button>
-          <button id="clearAllBtn" class="btn danger">Clear All</button>
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 West Africa Classifieds. Serving Nigeria, Ghana and West Africa.</p>
         </div>
-      </div>
+    </footer>
 
-      <ul id="semList" class="sem-list"></ul>
-      <canvas id="gpaTrendChart" height="150" style="margin-top:15px"></canvas>
-    </aside>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <small>Made with ❤️ for Naija students • Now tracks GPA visually</small>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
-
-
-
